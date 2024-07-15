@@ -7,7 +7,7 @@ import Rank from './components/Rank/Rank';
 import ParticlesBg from 'particles-bg';
 import './App.css';
 
-const setUpClarifai =(imageUrl) =>{
+const returnClarifaiJSONRequest =(imageUrl) =>{
     const PAT = 'a1f9cfd6934d4a279577e28985f79d77';
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
@@ -15,7 +15,23 @@ const setUpClarifai =(imageUrl) =>{
     const APP_ID = 'my-first-application-e38qz';
     // Change these to whatever model and image URL you want to use
     const MODEL_ID = 'face-detection';   
-    const IMAGE_URL = 'https://samples.clarifai.com/metro-north.jpg';
+    const IMAGE_URL = imageUrl;
+
+    return raw = JSON.stringify({
+      "user_app_id": {
+          "user_id": USER_ID,
+          "app_id": APP_ID
+      },
+      "inputs": [
+          {
+              "data": {
+                  "image": {
+                      "url": IMAGE_URL
+                  }
+              }
+          }
+      ]
+  });
 }
 
 
@@ -23,21 +39,7 @@ const setUpClarifai =(imageUrl) =>{
     // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
     ///////////////////////////////////////////////////////////////////////////////////
 
-    const raw = JSON.stringify({
-        "user_app_id": {
-            "user_id": USER_ID,
-            "app_id": APP_ID
-        },
-        "inputs": [
-            {
-                "data": {
-                    "image": {
-                        "url": IMAGE_URL
-                    }
-                }
-            }
-        ]
-    });
+    
 
     const requestOptions = {
         method: 'POST',
