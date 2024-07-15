@@ -7,7 +7,7 @@ import Rank from './components/Rank/Rank';
 import ParticlesBg from 'particles-bg';
 import './App.css';
 
-const returnClarifaiJSONRequest =(imageUrl) =>{
+const returnClarifaiRequest =(imageUrl) =>{
     const PAT = 'a1f9cfd6934d4a279577e28985f79d77';
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
@@ -17,7 +17,7 @@ const returnClarifaiJSONRequest =(imageUrl) =>{
     const MODEL_ID = 'face-detection';   
     const IMAGE_URL = imageUrl;
 
-    return raw = JSON.stringify({
+    const raw = JSON.stringify({
       "user_app_id": {
           "user_id": USER_ID,
           "app_id": APP_ID
@@ -32,6 +32,16 @@ const returnClarifaiJSONRequest =(imageUrl) =>{
           }
       ]
   });
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Key ' + PAT
+    },
+    body: raw
+};
+  return requestOptions;
 }
 
 
@@ -41,15 +51,7 @@ const returnClarifaiJSONRequest =(imageUrl) =>{
 
     
 
-    const requestOptions = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Key ' + PAT
-        },
-        body: raw
-    };
-
+    
     // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
     // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
     // this will default to the latest version_id
