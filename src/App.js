@@ -13,8 +13,7 @@ const returnClarifaiRequest =(imageUrl) =>{
     // Since you're making inferences outside your app's scope
     const USER_ID = '82nxn1prhu8q';       
     const APP_ID = 'my-first-application-e38qz';
-    // Change these to whatever model and image URL you want to use
-    const MODEL_ID = 'face-detection';   
+    // Change these to whatever model and image URL you want to use 
     const IMAGE_URL = imageUrl;
 
     const raw = JSON.stringify({
