@@ -3,6 +3,7 @@ import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import SignIn from './components/SignIn/SignIn';
 import Rank from './components/Rank/Rank';
 import ParticlesBg from 'particles-bg';
 import './App.css';
@@ -112,6 +113,7 @@ class App extends Component{
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
         <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl}/>
+        <SignIn />
       </div>
     );
   }
