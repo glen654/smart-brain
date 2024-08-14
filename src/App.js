@@ -10,39 +10,39 @@ import ParticlesBg from 'particles-bg';
 import './App.css';
 
 const returnClarifaiRequest =(imageUrl) =>{
-    const PAT = 'a1f9cfd6934d4a279577e28985f79d77';
-    // Specify the correct user_id/app_id pairings
-    // Since you're making inferences outside your app's scope
-    const USER_ID = '82nxn1prhu8q';       
-    const APP_ID = 'my-first-application-e38qz';
-    // Change these to whatever model and image URL you want to use 
-    const IMAGE_URL = imageUrl;
+  const PAT = 'a1f9cfd6934d4a279577e28985f79d77';
+  // Specify the correct user_id/app_id pairings
+  // Since you're making inferences outside your app's scope
+  const USER_ID = '82nxn1prhu8q';       
+  const APP_ID = 'my-first-application-e38qz';
+  // Change these to whatever model and image URL you want to use 
+  const IMAGE_URL = imageUrl;
 
-    const raw = JSON.stringify({
-      "user_app_id": {
-          "user_id": USER_ID,
-          "app_id": APP_ID
-      },
-      "inputs": [
-          {
-              "data": {
-                  "image": {
-                      "url": IMAGE_URL
-                  }
-              }
-          }
-      ]
-  });
-
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key ' + PAT
+  const raw = JSON.stringify({
+    "user_app_id": {
+        "user_id": USER_ID,
+        "app_id": APP_ID
     },
-    body: raw
+    "inputs": [
+        {
+            "data": {
+                "image": {
+                    "url": IMAGE_URL
+                }
+            }
+        }
+    ]
+});
+
+const requestOptions = {
+  method: 'POST',
+  headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Key ' + PAT
+  },
+  body: raw
 };
-  return requestOptions;
+return requestOptions;
 }
 
 
