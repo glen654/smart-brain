@@ -32,10 +32,6 @@ class App extends Component{
   }
 
   componentDidMount(){
-    // fetch('http://localhost:3000')
-    //   .then(response => response.json())
-    //   .then(console.log);
-
     const token = window.sessionStorage.getItem('token');
     if (token) {
       fetch('http://localhost:3000/signin', {
@@ -100,35 +96,6 @@ class App extends Component{
   }
 
   onButtonSubmit = () => {
-    // this.setState({imageUrl: this.state.input});
-    // fetch('http://localhost:3000/imageUrl', {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     input: this.state.input
-    //   })
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-    //   if (response) {
-    //     fetch('http://localhost:3000/image', {
-    //       method: 'PUT',
-    //       headers: {'Content-Type': 'application/json'},
-    //       body: JSON.stringify({
-    //         id: this.state.user.id
-    //       })
-    //     })
-    //       .then(response => response.json())
-    //       .then(count => {
-    //         this.setState(Object.assign(this.state.user, { entries: count}))
-    //       })
-    //       .catch(console.log)
-
-    //   }
-    //   this.displayFaceBox(this.calculateFaceLocation(response))
-    // })
-    // .catch(err => console.log(err));
-
     this.setState({imageUrl: this.state.input});
       fetch('http://localhost:3000/imageurl', {
         method: 'post',
